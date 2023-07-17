@@ -26,9 +26,15 @@ class DashboardScreen extends StatelessWidget{
       appBar: AppBar(
         title: Text("Dashboard"),
       ),
-      body: Container(
-        color: Colors.blue.shade50,
+      body: Center(
+        child: Container(
+        height: 100,
+        width: 100,
+        color: Colors.limeAccent,
+        child: Text("Hello Devs!"),
+        ),
       ),
+      
     );
   }
 
