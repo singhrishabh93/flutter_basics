@@ -32,7 +32,10 @@ class DashboardScreen extends StatelessWidget{
         height: 200,
         color: Colors.amberAccent,
         child: Center(
-          child: Text("Hello! This is Rishabh", style: TextStyle(color: Colors.deepOrange),),
+          child: Text("Hello! This is Rishabh", style: TextStyle(
+            color: Colors.deepOrange,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,),),
         ) 
       )
       )
