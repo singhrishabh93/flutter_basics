@@ -24,14 +24,13 @@ class DashboardScreen extends StatelessWidget {
         appBar: AppBar(
           title: Text("Dashboard"),
         ),
-        body: OutlinedButton( //ElevatedButton, TextButton
-          child: Text("Click Me!"),
-          onPressed: () {
-            print("Text Button Pressed!");
-          },
-          onLongPress: () {
-            print("Long Pressed!");
-          },
-        ));
+        body: Center(
+          child: Container(
+            width: 200,
+            height: 200,
+            child:Image.asset("assets/images/icon_flutter.png")), 
+        )
+        
+        );
   }
 }
