@@ -11,36 +11,27 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "MyFirstApp",
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue
-      ),
-      home:DashboardScreen(), 
+      theme: ThemeData(primarySwatch: Colors.blue),
+      home: DashboardScreen(),
     );
   }
 }
 
-class DashboardScreen extends StatelessWidget{
+class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Dashboard"),
-      ),
-      body: Center(
-        child: Container(
-        width: 200,
-        height: 200,
-        color: Colors.amberAccent,
-        child: Center(
-          child: Text("Hello! This is Rishabh", style: TextStyle(
-            color: Colors.deepOrange,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,),),
-        ) 
-      )
-      )
-      
-    );
+        appBar: AppBar(
+          title: Text("Dashboard"),
+        ),
+        body: OutlinedButton( //ElevatedButton, TextButton
+          child: Text("Click Me!"),
+          onPressed: () {
+            print("Text Button Pressed!");
+          },
+          onLongPress: () {
+            print("Long Pressed!");
+          },
+        ));
   }
-
 }
