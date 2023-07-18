@@ -1,4 +1,4 @@
-# flutter_basics_1
+# Flutter Basics
 
 A new Flutter project.
 
