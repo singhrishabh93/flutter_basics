@@ -27,8 +27,16 @@ class DashboardScreen extends StatelessWidget{
         title: Text("Dashboard"),
       ),
       body: Center(
-        child: Text("Hello, Rishabh", style: TextStyle(fontSize: 25),),
+        child: Container(
+        width: 200,
+        height: 200,
+        color: Colors.amberAccent,
+        child: Center(
+          child: Text("Hello! This is Rishabh", style: TextStyle(color: Colors.deepOrange),),
+        ) 
       )
+      )
+      
     );
   }
 
