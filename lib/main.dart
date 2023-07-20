@@ -24,11 +24,14 @@ class DashboardScreen extends StatelessWidget {
         appBar: AppBar(
           title: Text("Dashboard"),
         ),
-        body: Center(
-          child: Container(
-            width: 200,
-            height: 200,
-            child:Image.asset("assets/images/icon_flutter.png")), 
+        body: Column(
+          children: [
+            Text("A", style: TextStyle(fontSize: 25),),
+            Text("B", style: TextStyle(fontSize: 25),),
+            Text("C", style: TextStyle(fontSize: 25),),
+            Text("D", style: TextStyle(fontSize: 25),),
+            Text("E", style: TextStyle(fontSize: 25),),
+          ],
         )
         
         );
