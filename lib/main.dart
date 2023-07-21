@@ -21,36 +21,60 @@ class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Dashboard"),
-        ),
-        body: Center(
-          child: InkWell(
-            onTap: () {
-              print("Single Pressed");
-            },
-            onLongPress: () {
-              print("Long Pressed");
-            },
-            onDoubleTap: () {
-              print("Double Tap");
-            },
-            child: Container(
-              width: 200,
-              height: 200,
-              color: Colors.amberAccent,
-              child: Center(
-                  child: InkWell(
-                onTap: () {
-                  print("Clicked on text");
-                },
-                child: Text(
-                  "Click here",
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700),
+      appBar: AppBar(
+        title: Text("Dashboard"),
+        backgroundColor: Colors.orange,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(bottom: 11),
+                child: Row(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(right: 11),
+                      height: 200,
+                      width: 200,
+                      color: Colors.lightGreen,
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(right: 11),
+                      height: 200,
+                      width: 200,
+                      color: Colors.black,
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(right: 11),
+                      height: 200,
+                      width: 200,
+                      color: Colors.yellow,
+                    ),
+                  ],
                 ),
-              )),
-            ),
+              ),
+              Container(
+                margin: EdgeInsets.only(bottom: 11),
+                height: 200,
+                color: Colors.orange,
+              ),
+              Container(
+                margin: EdgeInsets.only(bottom: 11),
+                height: 200,
+                color: Colors.blue,
+              ),
+              Container(
+                margin: EdgeInsets.only(bottom: 11),
+                height: 200,
+                color: Colors.purple,
+              )
+            ],
           ),
-        ));
+        ),
+      ),
+    );
   }
 }
