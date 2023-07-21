@@ -24,12 +24,33 @@ class DashboardScreen extends StatelessWidget {
         appBar: AppBar(
           title: Text("Dashboard"),
         ),
-        body: Container(
-          child: ElevatedButton(
-              onPressed: () {
-                print("Button Pressed");
-              },
-              child: Text("Click Me")),
+        body: Center(
+          child: InkWell(
+            onTap: () {
+              print("Single Pressed");
+            },
+            onLongPress: () {
+              print("Long Pressed");
+            },
+            onDoubleTap: () {
+              print("Double Tap");
+            },
+            child: Container(
+              width: 200,
+              height: 200,
+              color: Colors.amberAccent,
+              child: Center(
+                  child: InkWell(
+                onTap: () {
+                  print("Clicked on text");
+                },
+                child: Text(
+                  "Click here",
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700),
+                ),
+              )),
+            ),
+          ),
         ));
   }
 }
