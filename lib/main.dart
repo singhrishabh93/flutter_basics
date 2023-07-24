@@ -41,8 +41,28 @@ class DashboardScreen extends StatelessWidget {
         body: ListView.separated(
           // reverse: true,
           itemBuilder: (context, index) {
-            return Text(arrNames[index],
-                style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold));
+            return Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(arrNames[index],
+                      style:
+                          TextStyle(fontSize: 21, fontWeight: FontWeight.bold)),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(arrNames[index],
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(arrNames[index],
+                      style:
+                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+                )
+              ],
+            );
           },
           itemCount: arrNames.length,
           // scrollDirection: Axis.horizontal,
