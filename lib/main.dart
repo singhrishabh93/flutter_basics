@@ -21,60 +21,50 @@ class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Dashboard"),
-        backgroundColor: Colors.orange,
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(bottom: 11),
-                child: Row(
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(right: 11),
-                      height: 200,
-                      width: 200,
-                      color: Colors.lightGreen,
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(right: 11),
-                      height: 200,
-                      width: 200,
-                      color: Colors.black,
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(right: 11),
-                      height: 200,
-                      width: 200,
-                      color: Colors.yellow,
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.only(bottom: 11),
-                height: 200,
-                color: Colors.orange,
-              ),
-              Container(
-                margin: EdgeInsets.only(bottom: 11),
-                height: 200,
-                color: Colors.blue,
-              ),
-              Container(
-                margin: EdgeInsets.only(bottom: 11),
-                height: 200,
-                color: Colors.purple,
-              )
-            ],
-          ),
+        appBar: AppBar(
+          title: Text("Dashboard"),
+          backgroundColor: Colors.orange,
         ),
-      ),
-    );
+        body: ListView(
+          scrollDirection: Axis.horizontal,
+          // reverse: true, //for reversing the list
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                "One",
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                "Two",
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                "Three",
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                "Four",
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                "Five",
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ],
+        ));
   }
 }
