@@ -38,15 +38,20 @@ class DashboardScreen extends StatelessWidget {
           title: Text("Dashboard"),
           backgroundColor: Colors.orange,
         ),
-        body: ListView.builder(
+        body: ListView.separated(
           // reverse: true,
           itemBuilder: (context, index) {
             return Text(arrNames[index],
                 style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold));
           },
           itemCount: arrNames.length,
-          itemExtent: 100,
-          scrollDirection: Axis.horizontal,
+          // scrollDirection: Axis.horizontal,
+          separatorBuilder: (context, index) {
+            return Divider(
+              height: 50,
+              thickness: 4,
+            );
+          },
         ));
   }
 }
