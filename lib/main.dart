@@ -20,58 +20,31 @@ class MyApp extends StatelessWidget {
 class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var arrNames = [
-      "Ramesh",
-      "Suresh",
-      "Dinesh",
-      "Mahesh",
-      "Rakesh",
-      "Rajesh",
-      "Dinesh",
-      "Mahesh",
-      "Rakesh",
-      "Rajesh"
-    ];
-
     return Scaffold(
         appBar: AppBar(
           title: Text("Dashboard"),
           backgroundColor: Colors.orange,
         ),
-        body: ListView.separated(
-          // reverse: true,
-          itemBuilder: (context, index) {
-            return Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(arrNames[index],
-                      style:
-                          TextStyle(fontSize: 21, fontWeight: FontWeight.bold)),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(arrNames[index],
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(arrNames[index],
-                      style:
-                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
-                )
-              ],
-            );
-          },
-          itemCount: arrNames.length,
-          // scrollDirection: Axis.horizontal,
-          separatorBuilder: (context, index) {
-            return Divider(
-              height: 50,
-              thickness: 4,
-            );
-          },
+        body: Container(
+          color: Colors.blue.shade50,
+          width: double.infinity,
+          height: double.infinity,
+          child: Center(
+            child: Container(
+              width: 150,
+              height: 150,
+              decoration: BoxDecoration(
+                  color: Colors.blueGrey,
+                  // borderRadius: BorderRadius.circular(21)),
+                  // borderRadius: BorderRadius.circular(25),
+                  border: Border.all(width: 5, color: Colors.black),
+                  boxShadow: [
+                    BoxShadow(
+                        blurRadius: 11, spreadRadius: 2, color: Colors.grey)
+                  ],
+                  shape: BoxShape.circle),
+            ),
+          ),
         ));
   }
 }
