@@ -20,7 +20,18 @@ class MyApp extends StatelessWidget {
 class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // var names = ["Ramesh", "Suresh", "Dinesh","Mahesh","Rakesh","Rajesh"];
+    var arrNames = [
+      "Ramesh",
+      "Suresh",
+      "Dinesh",
+      "Mahesh",
+      "Rakesh",
+      "Rajesh",
+      "Dinesh",
+      "Mahesh",
+      "Rakesh",
+      "Rajesh"
+    ];
 
     return Scaffold(
         appBar: AppBar(
@@ -28,11 +39,14 @@ class DashboardScreen extends StatelessWidget {
           backgroundColor: Colors.orange,
         ),
         body: ListView.builder(
+          // reverse: true,
           itemBuilder: (context, index) {
-            return Text("One",
+            return Text(arrNames[index],
                 style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold));
           },
-          itemCount: 5,
+          itemCount: arrNames.length,
+          itemExtent: 100,
+          scrollDirection: Axis.horizontal,
         ));
   }
 }
