@@ -25,7 +25,7 @@ class DashboardScreen extends StatelessWidget {
           title: Text("Dashboard"),
           backgroundColor: Colors.orange,
         ),
-        body: Row(
+        body: Column(
           // mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
