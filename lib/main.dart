@@ -25,26 +25,42 @@ class DashboardScreen extends StatelessWidget {
           title: Text("Dashboard"),
           backgroundColor: Colors.orange,
         ),
-        body: Container(
-          color: Colors.blue.shade50,
-          width: double.infinity,
-          height: double.infinity,
-          child: Center(
-            child: Container(
-              width: 150,
-              height: 150,
-              decoration: BoxDecoration(
-                  color: Colors.blueGrey,
-                  // borderRadius: BorderRadius.circular(21)),
-                  // borderRadius: BorderRadius.circular(25),
-                  border: Border.all(width: 5, color: Colors.black),
-                  boxShadow: [
-                    BoxShadow(
-                        blurRadius: 11, spreadRadius: 2, color: Colors.grey)
-                  ],
-                  shape: BoxShape.circle),
+        body: Row(
+          // mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Expanded(
+              flex: 2,
+              child: Container(
+                width: 50,
+                height: 100,
+                color: Colors.amberAccent,
+              ),
             ),
-          ),
+            Expanded(
+              flex: 3,
+              child: Container(
+                height: 100,
+                width: 50,
+                color: Colors.blue,
+              ),
+            ),
+            Expanded(
+              flex: 3,
+              child: Container(
+                height: 100,
+                width: 50,
+                color: Colors.green,
+              ),
+            ),
+            Expanded(
+              flex: 1,
+              child: Container(
+                height: 100,
+                width: 50,
+                color: Colors.purple,
+              ),
+            )
+          ],
         ));
   }
 }
