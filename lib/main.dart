@@ -20,20 +20,41 @@ class MyApp extends StatelessWidget {
 class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var arrNames = [
+      "Ramesh",
+      "Suresh",
+      "Dinesh",
+      "Mahesh",
+      "Rakesh",
+      "Rajesh",
+      "Dinesh",
+      "Mahesh",
+      "Rakesh",
+      "Rajesh"
+    ];
     return Scaffold(
         appBar: AppBar(
           title: Text("Dashboard"),
           backgroundColor: Colors.orange,
         ),
-        body: Container(
-            color: Colors.amber,
-            margin: EdgeInsets.all(11),
-            child: Padding(
-              padding: const EdgeInsets.all(11),
-              child: Text(
-                "Hello! World",
-                style: TextStyle(fontSize: 25),
-              ),
-            )));
+        body: ListView.separated(
+          // reverse: true,
+          itemBuilder: (context, index) {
+            return ListTile(
+              leading: Text('${index + 1}'),
+              title: Text(arrNames[index]),
+              subtitle: Text('Number'),
+              trailing: Icon(Icons.add),
+            );
+          },
+          itemCount: arrNames.length,
+          // scrollDirection: Axis.horizontal,
+          separatorBuilder: (context, index) {
+            return Divider(
+              height: 20,
+              thickness: 4,
+            );
+          },
+        ));
   }
 }
