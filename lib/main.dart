@@ -25,9 +25,15 @@ class DashboardScreen extends StatelessWidget {
           title: Text("Dashboard"),
           backgroundColor: Colors.orange,
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(11),
-          child: Text("Hello! World"),
-        ));
+        body: Container(
+            color: Colors.amber,
+            margin: EdgeInsets.all(11),
+            child: Padding(
+              padding: const EdgeInsets.all(11),
+              child: Text(
+                "Hello! World",
+                style: TextStyle(fontSize: 25),
+              ),
+            )));
   }
 }
