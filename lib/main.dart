@@ -49,6 +49,7 @@ class DashboardScreen extends StatelessWidget {
           },
           itemCount: arrNames.length,
           // scrollDirection: Axis.horizontal,
+          // flutter test
           separatorBuilder: (context, index) {
             return Divider(
               height: 20,
