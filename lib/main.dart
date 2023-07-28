@@ -12,13 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "MyFirstApp",
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-          primarySwatch: Colors.blue,
-          textTheme: TextTheme(
-            displayLarge: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
-            displayMedium:
-                TextStyle(fontSize: 11, fontWeight: FontWeight.normal),
-          )),
+      theme: ThemeData(),
       home: DashboardScreen(),
     );
   }
@@ -33,32 +27,16 @@ class DashboardScreen extends StatelessWidget {
           backgroundColor: Colors.green,
         ),
         body: Center(
-          child: Column(
-            children: [
-              Text(
-                "Hello Rishabh",
-                style: Theme.of(context)
-                    .textTheme
-                    .displayLarge!
-                    .copyWith(color: Colors.deepPurpleAccent),
-              ),
-              Text(
-                "Hello Rishabh",
-                style: Theme.of(context).textTheme.displayLarge,
-              ),
-              Text(
-                "Hello Rishabh",
-                style: Theme.of(context)
-                    .textTheme
-                    .displayMedium!
-                    .copyWith(color: Colors.deepOrangeAccent),
-              ),
-              Text(
-                "Hello Rishabh",
-                style: myTextStyle11(),
-              ),
-            ],
-          ),
+          child: Card(
+              shadowColor: Colors.blue,
+              elevation: 5,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "Hello Rishabh",
+                  style: TextStyle(fontSize: 25),
+                ),
+              )),
         ));
   }
 }
