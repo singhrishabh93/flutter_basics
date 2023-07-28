@@ -26,22 +26,11 @@ class DashboardScreen extends StatelessWidget {
           backgroundColor: Colors.orange,
         ),
         body: Center(
-          child: CircleAvatar(
-            child: Column(
-              children: [
-                Container(
-                    width: 50,
-                    height: 50,
-                    child: Image.asset('assets/images/boy.png')),
-                Text("Rishabh")
-              ],
-            ),
-            // backgroundImage: AssetImage('assets/images/boy.png'),
-            // backgroundColor: Colors.amber,
-            //radius: 100,
-            // minRadius: 50,
-            radius: 50,
-          ),
+          child: Text("Hello Rishabh!",
+              style: TextStyle(
+                  fontFamily: 'FontMain',
+                  fontWeight: FontWeight.w700,
+                  fontSize: 55)),
         ));
   }
 }
