@@ -23,14 +23,8 @@ class DashboardScreen extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text("Dashboard"),
-          backgroundColor: Colors.orange,
+          backgroundColor: Colors.green,
         ),
-        body: Center(
-          child: Text("Hello Rishabh!",
-              style: TextStyle(
-                  fontFamily: 'FontMain',
-                  fontWeight: FontWeight.w700,
-                  fontSize: 55)),
-        ));
+        body: Text("Hello"));
   }
 }
