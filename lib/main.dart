@@ -40,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
           title: Text("Dashboard"),
           backgroundColor: Colors.green,
         ),
-        body: Padding(
+        body: Padding( // Grid View cannot be used with Column Widget Doubt
           padding: const EdgeInsets.all(8.0),
           child: GridView.count(
             crossAxisCount: 4,
