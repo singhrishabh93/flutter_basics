@@ -25,46 +25,53 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    var time = DateTime.now();
+    var arrColors = [
+      Colors.red,
+      Colors.amberAccent,
+      Colors.black,
+      Colors.green,
+      Colors.deepPurple,
+      Colors.orange,
+      Colors.blue,
+      Colors.pinkAccent,
+    ];
     return Scaffold(
         appBar: AppBar(
           title: Text("Dashboard"),
           backgroundColor: Colors.green,
         ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: GridView.count(
+            crossAxisCount: 4,
+            crossAxisSpacing: 11,
+            mainAxisSpacing: 11,
             children: [
-              Text(
-                "Select Date",
-                style: TextStyle(fontSize: 25),
+              Container(
+                color: arrColors[0],
               ),
-              ElevatedButton(
-                  onPressed: () async {
-                    DateTime? datePicked = await showDatePicker(
-                        context: context,
-                        initialDate: DateTime.now(),
-                        firstDate: DateTime(2021),
-                        lastDate: DateTime(2026));
-
-                    if (datePicked != null) {
-                      print('Date Selected ${datePicked.day}');
-                    }
-                  },
-                  child: Text("Show")),
-              ElevatedButton(
-                  onPressed: () async {
-                    TimeOfDay? pickedTime = await showTimePicker(
-                        context: context,
-                        initialTime: TimeOfDay.now(),
-                        initialEntryMode: TimePickerEntryMode.input);
-
-                    if (pickedTime != null) {
-                      print('Time Picked ${pickedTime.hour}');
-                    }
-                  },
-                  child: Text("Show Time"))
-            ],
+              Container(
+                color: arrColors[1],
+              ),
+              Container(
+                color: arrColors[2],
+              ),
+              Container(
+                color: arrColors[3],
+              ),
+              Container(
+                color: arrColors[4],
+              ),
+              Container(
+                color: arrColors[5],
+              ),
+              Container(
+                color: arrColors[6],
+              ),
+              Container(
+                color: arrColors[7],
+              ),
+            ],       
           ),
         ));
   }
