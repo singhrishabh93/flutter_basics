@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basics_1/widgets/rounded_btn.dart';
 import 'package:intl/intl.dart';
 
 void main() {
@@ -30,31 +31,41 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Dashboard"),
-          backgroundColor: Colors.green,
+      appBar: AppBar(
+        title: Text("Dashboard"),
+        backgroundColor: Colors.green,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              height: 50,
+              width: 160,
+              child: RoundedButton(
+                  btnName: "Rounded Button",
+                  icon: Icon(Icons.lock),
+                  callBack: () {
+                    print("Printed Rounded Button");
+                  }),
+            ),
+            Container(
+              height: 11,
+            ),
+            Container(
+              height: 50,
+              width: 160,
+              child: RoundedButton(
+                  btnName: "Press Button",
+                  bgColor: Colors.green,
+                  // icon: Icon(Icons.lock),
+                  callBack: () {
+                    print("Printed Rounded Button");
+                  }),
+            ),
+          ],
         ),
-        body: Container(
-          height: 300,
-          width: 300,
-          child: Stack(
-            children: [
-              Container(
-                width: 200,
-                height: 200,
-                color: Colors.blue,
-              ),
-              Positioned(
-                left: 21,
-                top: 21,
-                child: Container(
-                  width: 200,
-                  height: 200,
-                  color: Colors.green,
-                ),
-              ),
-            ],
-          ),
-        ));
+      ),
+    );
   }
 }
