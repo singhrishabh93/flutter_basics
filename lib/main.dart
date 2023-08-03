@@ -31,41 +31,64 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Dashboard"),
-        backgroundColor: Colors.green,
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        appBar: AppBar(
+          title: Text("Dashboard"),
+          backgroundColor: Colors.green,
+        ),
+        body: Wrap(
+          // direction: Axis.vertical,
           children: [
             Container(
-              height: 50,
-              width: 160,
-              child: RoundedButton(
-                  btnName: "Rounded Button",
-                  icon: Icon(Icons.lock),
-                  callBack: () {
-                    print("Printed Rounded Button");
-                  }),
+              height: 100,
+              width: 70,
+              color: Colors.green,
             ),
             Container(
-              height: 11,
+              height: 100,
+              width: 70,
+              color: Colors.blue,
             ),
             Container(
-              height: 50,
-              width: 160,
-              child: RoundedButton(
-                  btnName: "Press Button",
-                  bgColor: Colors.green,
-                  // icon: Icon(Icons.lock),
-                  callBack: () {
-                    print("Printed Rounded Button");
-                  }),
+              height: 100,
+              width: 70,
+              color: Colors.yellow,
+            ),
+            Container(
+              height: 100,
+              width: 70,
+              color: Colors.pink,
+            ),
+            Container(
+              height: 100,
+              width: 70,
+              color: Colors.orange,
+            ),
+            Container(
+              height: 100,
+              width: 70,
+              color: Colors.black,
+            ),
+            Container(
+              height: 100,
+              width: 70,
+              color: Colors.grey,
+            ),
+            Container(
+              height: 100,
+              width: 70,
+              color: Colors.brown,
+            ),
+            Container(
+              height: 100,
+              width: 70,
+              color: Colors.lightGreen,
+            ),
+            Container(
+              height: 100,
+              width: 70,
+              color: Colors.red,
             ),
           ],
-        ),
-      ),
-    );
+        ));
   }
 }
