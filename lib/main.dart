@@ -39,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
           width: double.infinity,
           height: double.infinity,
           child: Wrap(
-            direction: Axis.vertical,
+            direction: Axis.vertical, //postioning the element vertically
             // alignment: WrapAlignment.center,
             alignment: WrapAlignment.spaceEvenly,
             spacing: 11,
