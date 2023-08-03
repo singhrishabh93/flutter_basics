@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basics_1/widgets/rounded_btn.dart';
 import 'package:intl/intl.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(MyApp());
@@ -36,20 +37,27 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: Colors.green,
         ),
         body: Center(
-          child: Column(
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Icon(
-                Icons.add_business_rounded,
-                size: 100,
-                color: Colors.green,
-              ),
+              // Icon(
+              //   Icons.add_business_rounded,
+              //   size: 100,
+              //   color: Colors.green,
+              // ),
               Icon(
                 Icons.play_circle,
                 size: 100,
                 color: Colors.green,
               ),
+              SizedBox(
+                width: 11,
+              ),
+              FaIcon(
+                FontAwesomeIcons.amazon,
+                size: 100,
+              )
             ],
           ),
         ));
