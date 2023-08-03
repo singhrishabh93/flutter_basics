@@ -36,11 +36,19 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: Colors.green,
         ),
         body: Center(
-          child: SizedBox.expand(
-            //sizedbox
-            // width: 200,
-            // height: 50,
-            child: ElevatedButton(onPressed: () {}, child: Text("Button")),
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+              maxHeight: 80,
+              maxWidth: 400,
+              minHeight: 20,
+              minWidth: 200,
+            ),
+            child: SizedBox.shrink(
+              //sizedbox
+              // width: 200,
+              // height: 50,
+              child: ElevatedButton(onPressed: () {}, child: Text("Button")),
+            ),
           ),
         ));
   }
