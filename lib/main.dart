@@ -33,30 +33,24 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          centerTitle: true,
           title: Text("Dashboard"),
           backgroundColor: Colors.green,
         ),
-        body: Center(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
+        body: Container(
+          width: 300,
+          // height: double.infinity,
+          color: Colors.blueGrey,
+          child: Stack(
             children: [
-              // Icon(
-              //   Icons.add_business_rounded,
-              //   size: 100,
-              //   color: Colors.green,
-              // ),
-              Icon(
-                Icons.play_circle,
-                size: 100,
-                color: Colors.green,
-              ),
-              SizedBox(
-                width: 11,
-              ),
-              FaIcon(
-                FontAwesomeIcons.amazon,
-                size: 100,
+              Positioned(
+                bottom: 41,
+                right: 41,
+                child: Container(
+                  width: 100,
+                  height: 100,
+                  color: Colors.white,
+                ),
               )
             ],
           ),
