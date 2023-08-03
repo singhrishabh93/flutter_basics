@@ -36,9 +36,10 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: Colors.green,
         ),
         body: Center(
-          child: SizedBox( //sizedbox
-            width: 200,
-            height: 50,
+          child: SizedBox.expand(
+            //sizedbox
+            // width: 200,
+            // height: 50,
             child: ElevatedButton(onPressed: () {}, child: Text("Button")),
           ),
         ));
