@@ -35,21 +35,36 @@ class _MyHomePageState extends State<MyHomePage> {
           title: Text("Dashboard"),
           backgroundColor: Colors.green,
         ),
-        body: Center(
-          child: ConstrainedBox(
-            constraints: BoxConstraints(
-              maxHeight: 80,
-              maxWidth: 400,
-              minHeight: 20,
-              minWidth: 200,
-            ),
-            child: SizedBox.shrink(
+        body: Wrap(
+          children: [
+            SizedBox.square(
+              dimension: 100,
               //sizedbox
               // width: 200,
               // height: 50,
               child: ElevatedButton(onPressed: () {}, child: Text("Button")),
             ),
-          ),
+            SizedBox(
+              width: 20,
+            ),
+            SizedBox.square(
+              dimension: 100,
+              //sizedbox
+              // width: 200,
+              // height: 50,
+              child: ElevatedButton(onPressed: () {}, child: Text("Button")),
+            ),
+            SizedBox(
+              width: 50,
+            ),
+            SizedBox.square(
+              dimension: 100,
+              //sizedbox
+              // width: 200,
+              // height: 50,
+              child: ElevatedButton(onPressed: () {}, child: Text("Button")),
+            )
+          ],
         ));
   }
 }
