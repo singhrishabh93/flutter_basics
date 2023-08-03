@@ -35,67 +35,11 @@ class _MyHomePageState extends State<MyHomePage> {
           title: Text("Dashboard"),
           backgroundColor: Colors.green,
         ),
-        body: Container(
-          width: double.infinity,
-          height: double.infinity,
-          child: Wrap(
-            direction: Axis.vertical, //postioning the element vertically
-            // alignment: WrapAlignment.center,
-            alignment: WrapAlignment.spaceEvenly,
-            spacing: 11,
-            runSpacing: 11, //acts as a cross spacing
-            children: [
-              Container(
-                height: 100,
-                width: 70,
-                color: Colors.green,
-              ),
-              Container(
-                height: 100,
-                width: 70,
-                color: Colors.blue,
-              ),
-              Container(
-                height: 100,
-                width: 70,
-                color: Colors.yellow,
-              ),
-              Container(
-                height: 100,
-                width: 70,
-                color: Colors.pink,
-              ),
-              Container(
-                height: 100,
-                width: 70,
-                color: Colors.orange,
-              ),
-              Container(
-                height: 100,
-                width: 70,
-                color: Colors.black,
-              ),
-              Container(
-                height: 100,
-                width: 70,
-                color: Colors.grey,
-              ),
-              Container(
-                height: 100,
-                width: 70,
-                color: Colors.brown,
-              ),
-              Container(
-                height: 100,
-                width: 70,
-                color: Colors.lightGreen,
-              ),
-              Container(
-                height: 100,
-                width: 70,
-                color: Colors.red,
-              ),
-            ],
+        body: Center(
+          child: SizedBox( //sizedbox
+            width: 200,
+            height: 50,
+            child: ElevatedButton(onPressed: () {}, child: Text("Button")),
           ),
         ));
   }
