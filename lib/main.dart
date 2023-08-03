@@ -36,31 +36,22 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: Colors.green,
         ),
         body: Center(
-          child: RichText(
-              text: TextSpan(
-                  style: TextStyle(fontSize: 21, color: Colors.grey),
-                  children: [
-                TextSpan(
-                  text: "Hello",
-                ),
-                TextSpan(
-                    text: "World!",
-                    style: TextStyle(
-                        fontSize: 34,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.blue)),
-                TextSpan(
-                  text: " Welcome to ",
-                ),
-                TextSpan(
-                    text: "Flutter",
-                    style: TextStyle(
-                        fontSize: 43,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.blue,
-                        fontStyle: FontStyle.italic,
-                        fontFamily: 'FontMain')),
-              ])),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.add_business_rounded,
+                size: 100,
+                color: Colors.green,
+              ),
+              Icon(
+                Icons.play_circle,
+                size: 100,
+                color: Colors.green,
+              ),
+            ],
+          ),
         ));
   }
 }
