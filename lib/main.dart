@@ -35,36 +35,32 @@ class _MyHomePageState extends State<MyHomePage> {
           title: Text("Dashboard"),
           backgroundColor: Colors.green,
         ),
-        body: Wrap(
-          children: [
-            SizedBox.square(
-              dimension: 100,
-              //sizedbox
-              // width: 200,
-              // height: 50,
-              child: ElevatedButton(onPressed: () {}, child: Text("Button")),
-            ),
-            SizedBox(
-              width: 20,
-            ),
-            SizedBox.square(
-              dimension: 100,
-              //sizedbox
-              // width: 200,
-              // height: 50,
-              child: ElevatedButton(onPressed: () {}, child: Text("Button")),
-            ),
-            SizedBox(
-              width: 50,
-            ),
-            SizedBox.square(
-              dimension: 100,
-              //sizedbox
-              // width: 200,
-              // height: 50,
-              child: ElevatedButton(onPressed: () {}, child: Text("Button")),
-            )
-          ],
+        body: Center(
+          child: RichText(
+              text: TextSpan(
+                  style: TextStyle(fontSize: 21, color: Colors.grey),
+                  children: [
+                TextSpan(
+                  text: "Hello",
+                ),
+                TextSpan(
+                    text: "World!",
+                    style: TextStyle(
+                        fontSize: 34,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.blue)),
+                TextSpan(
+                  text: " Welcome to ",
+                ),
+                TextSpan(
+                    text: "Flutter",
+                    style: TextStyle(
+                        fontSize: 43,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.blue,
+                        fontStyle: FontStyle.italic,
+                        fontFamily: 'FontMain')),
+              ])),
         ));
   }
 }
