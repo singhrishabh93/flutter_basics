@@ -21,39 +21,40 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<StatefulWidget> createState() {
+    return MyHomeState();
+  }
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  callBack() {
-    print("Callback Function");
-  }
-
+class MyHomeState extends State<MyHomePage> {
+  var count = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: Text("Dashboard"),
-          backgroundColor: Colors.green,
+      appBar: AppBar(
+        title: Text("Stateful"),
+        centerTitle: true,
+        backgroundColor: Colors.green,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Count: $count',
+              style: TextStyle(fontSize: 34),
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    count++;
+                    print(count);
+                  });
+                },
+                child: Text('Increment Counter'))
+          ],
         ),
-        body: Container(
-          width: 300,
-          // height: double.infinity,
-          color: Colors.blueGrey,
-          child: Stack(
-            children: [
-              Positioned(
-                bottom: 41,
-                right: 41,
-                child: Container(
-                  width: 100,
-                  height: 100,
-                  color: Colors.white,
-                ),
-              )
-            ],
-          ),
-        ));
+      ),
+    );
   }
 }
