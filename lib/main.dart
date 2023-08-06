@@ -39,91 +39,12 @@ class MyHomeState extends State<MyHomePage> {
           centerTitle: true,
           backgroundColor: Colors.green,
         ),
-        body: Container(
-          color: Colors.green.shade100,
-          child: Center(
-            child: Padding(
-              padding: const EdgeInsets.all(11.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  TextField(
-                    keyboardType: TextInputType.number,
-                    controller: no1controller,
-                  ),
-                  TextField(
-                    keyboardType: TextInputType.number,
-                    controller: no2controller,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(21.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        ElevatedButton(
-                            onPressed: () {
-                              setState(() {
-                                var no1 =
-                                    int.parse(no1controller.text.toString());
-                                var no2 =
-                                    int.parse(no2controller.text.toString());
-                                var sum = no1 + no2;
-                                result = "The sum of $no1 and $no2 is $sum";
-                              });
-                            },
-                            child: Text("Add")),
-                        ElevatedButton(
-                            onPressed: () {
-                              setState(() {
-                                var no1 =
-                                    int.parse(no1controller.text.toString());
-                                var no2 =
-                                    int.parse(no2controller.text.toString());
-                                var sub = no1 - no2;
-                                result =
-                                    "The subtraction of $no1 and $no2 is $sub";
-                              });
-                            },
-                            child: Text("Subtract")),
-                        ElevatedButton(
-                            onPressed: () {
-                              setState(() {
-                                var no1 =
-                                    int.parse(no1controller.text.toString());
-                                var no2 =
-                                    int.parse(no2controller.text.toString());
-                                var mul = no1 * no2;
-                                result =
-                                    "The Multiplication of $no1 and $no2 is ${mul.toStringAsFixed(2)}";
-                              });
-                            },
-                            child: Text("Multiply")),
-                        ElevatedButton(
-                            onPressed: () {
-                              setState(() {
-                                var no1 =
-                                    int.parse(no1controller.text.toString());
-                                var no2 =
-                                    int.parse(no2controller.text.toString());
-                                var div = no1 / no2;
-                                result =
-                                    "The Division of $no1 and $no2 is ${div.toStringAsFixed(2)}";
-                              });
-                            },
-                            child: Text("Divide")),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(21),
-                    child: Text(
-                      result,
-                      style: TextStyle(fontSize: 25, color: Colors.black),
-                    ),
-                  )
-                ],
-              ),
-            ),
+        body: ConstrainedBox(
+          constraints: BoxConstraints(
+              maxHeight: 200, maxWidth: 200, minHeight: 50, minWidth: 50),
+          child: Text(
+            "Hello World! Hello World! Hello World! Hello World!Hello World! Hello World! Hello World! Hello World! Hello World! Hello World!Hello World!",
+            style: TextStyle(fontSize: 25, overflow: TextOverflow.fade),
           ),
         ));
   }
