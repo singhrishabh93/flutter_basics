@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basics_1/Intropage.dart';
+import 'package:flutter_basics_1/SplashPage.dart';
 import 'package:flutter_basics_1/Thirdpage.dart';
 import 'package:flutter_basics_1/widgets/rounded_btn.dart';
 import 'package:intl/intl.dart';
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'MyFirstApp',
       theme: ThemeData(),
-      home: IntroPage(),
+      home: SplashPage(),
     );
   }
 }
