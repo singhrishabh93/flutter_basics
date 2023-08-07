@@ -30,6 +30,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class MyHomeState extends State<MyHomePage> {
+  var nameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,23 +40,35 @@ class MyHomeState extends State<MyHomePage> {
           backgroundColor: Colors.green,
         ),
         body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            // crossAxisAlignment: CrossAxisAlignment.center ,
-            children: [
-              Text(
-                "Hello World",
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w100),
-              ),
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
-                      return ThirdPage();
-                    }));
-                  },
-                  child: Text("press Here"))
-            ],
+          child: Container(
+            width: 300,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              // crossAxisAlignment: CrossAxisAlignment.center ,
+              children: [
+                Text(
+                  "Hello World",
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700),
+                ),
+                SizedBox(
+                  height: 11,
+                ),
+                TextField(
+                  controller: nameController,
+                ),
+                SizedBox(
+                  height: 11,
+                ),
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return ThirdPage(nameController.text.toString());
+                      }));
+                    },
+                    child: Text("press Here"))
+              ],
+            ),
           ),
         ));
   }
