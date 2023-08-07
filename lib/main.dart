@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'MyFirstApp',
       theme: ThemeData(),
-      home: SplashPage(),
+      home: MyHomePage(),
     );
   }
 }
@@ -30,46 +30,32 @@ class MyHomePage extends StatefulWidget {
 }
 
 class MyHomeState extends State<MyHomePage> {
+  RangeValues values = RangeValues(0, 100);
   var nameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    RangeLabels labels =
+        RangeLabels(values.start.toString(), values.end.toString());
+
     return Scaffold(
         appBar: AppBar(
           title: Text("Basic Claculation"),
           centerTitle: true,
           backgroundColor: Colors.green,
         ),
-        body: Center(
-          child: Container(
-            width: 300,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              // crossAxisAlignment: CrossAxisAlignment.center ,
-              children: [
-                Text(
-                  "Hello World",
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700),
-                ),
-                SizedBox(
-                  height: 11,
-                ),
-                TextField(
-                  controller: nameController,
-                ),
-                SizedBox(
-                  height: 11,
-                ),
-                ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return ThirdPage(nameController.text.toString());
-                      }));
-                    },
-                    child: Text("press Here"))
-              ],
-            ),
-          ),
+        body: RangeSlider(
+          values: values,
+          labels: labels,
+          divisions: 10,
+          activeColor: Colors.green,
+          inactiveColor: Colors.green.shade100,
+          min: 0,
+          max: 100,
+          onChanged: (newValue) {
+            print("${newValue.start}, ${newValue.end}");
+            values = newValue;
+            setState(() {});
+          },
         ));
   }
 }

@@ -14,7 +14,7 @@ class IntroPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "Welcome",
+              "Welcome To Goa",
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.w100),
             ),
             SizedBox(
