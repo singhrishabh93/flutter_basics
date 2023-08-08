@@ -24,25 +24,97 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() {
-    return MyHomeState();
-  }
+  State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class MyHomeState extends State<MyHomePage> {
-  RangeValues values = RangeValues(0, 100);
-  var nameController = TextEditingController();
+class _MyHomePageState extends State<MyHomePage> {
+  var _width = 200.0;
+
+  var _height = 100.0;
+
+  bool flag = true;
+
   @override
   Widget build(BuildContext context) {
-    RangeLabels labels =
-        RangeLabels(values.start.toString(), values.end.toString());
-
     return Scaffold(
         appBar: AppBar(
-          title: Text("Basic Claculation"),
+          title: Text("Foo Animations"),
           centerTitle: true,
           backgroundColor: Colors.green,
         ),
-        body: Text("Hello World!"));
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              AnimatedContainer(
+                width: _width,
+                height: _height,
+                color: Colors.blue,
+                duration: Duration(seconds: 2),
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      if (flag) {
+                        _width:
+                        100.0;
+                        _height:
+                        200.0;
+                        flag = false;
+                      } else {
+                        _width:
+                        200.0;
+                        _height:
+                        100.0;
+                        flag = true;
+                      }
+                    });
+                  },
+                  child: Text("Animate"))
+            ],
+          ),
+        ));
   }
 }
+    
+  
+  
+
+
+// class MyHomeState extends State<MyHomePage> {
+//   var _width = 200.0;
+//   var _height = 100.0;
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//         appBar: AppBar(
+//           title: Text("Foo Animations"),
+//           centerTitle: true,
+//           backgroundColor: Colors.green,
+//         ),
+//         body: Center(
+//           child: Column(
+//             mainAxisAlignment: MainAxisAlignment.center,
+//             children: [
+//               AnimatedContainer(
+//                 width: _width,
+//                 height: _height,
+//                 color: Colors.blue,
+//                 duration: Duration(seconds: 2),
+//               ),
+//               ElevatedButton(
+//                   onPressed: () {
+                    
+//                     setState(() {
+//                       _width:
+//                       100.0;
+//                       _height:
+//                       200.0;
+//                       });
+//                   },
+//                   child: Text("Animate"))
+//             ],
+//           ),
+//         ));
+//   }
+// }
