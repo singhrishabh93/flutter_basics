@@ -43,19 +43,6 @@ class MyHomeState extends State<MyHomePage> {
           centerTitle: true,
           backgroundColor: Colors.green,
         ),
-        body: RangeSlider(
-          values: values,
-          labels: labels,
-          divisions: 10,
-          activeColor: Colors.green,
-          inactiveColor: Colors.green.shade100,
-          min: 0,
-          max: 100,
-          onChanged: (newValue) {
-            print("${newValue.start}, ${newValue.end}");
-            values = newValue;
-            setState(() {});
-          },
-        ));
+        body: Text("Hello World!"));
   }
 }
