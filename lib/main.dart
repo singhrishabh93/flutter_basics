@@ -28,15 +28,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  var _width = 200.0;
-
-  var _height = 100.0;
-
-  Decoration myDecor = BoxDecoration(
-      borderRadius: BorderRadius.circular(2.0), color: Colors.blueGrey);
-
-  bool flag = true;
-
+  var myOpac = 1.0;
+  bool isVisible = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,80 +42,32 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              AnimatedContainer(
-                width: _width,
-                height: _height,
-                decoration: myDecor,
-                curve: Curves.bounceIn,
-                duration: Duration(seconds: 2),
+              AnimatedOpacity(
+                opacity: myOpac,
+                duration: Duration(seconds: 1),
+                child: Container(
+                  width: 200,
+                  height: 100,
+                  color: Colors.blue,
+                ),
+                curve: Curves.elasticInOut,
               ),
               ElevatedButton(
                   onPressed: () {
+                    myOpac = 0.0;
                     setState(() {
-                      if (flag) {
-                        _width = 100.0;
-                        _height = 200.0;
-                        myDecor = BoxDecoration(
-                          borderRadius: BorderRadius.circular(21),
-                          color: Colors.orange,
-                        );
-                        flag = false;
+                      if (isVisible) {
+                        myOpac = 0.0; //invisible
+                        isVisible = false;
                       } else {
-                        _width = 200.0;
-                        _height = 100.0;
-                        flag = true;
-                        myDecor = BoxDecoration(
-                          borderRadius: BorderRadius.circular(2.0),
-                          color: Colors.blueGrey,
-                        );
+                        myOpac = 1.0; //visible
+                        isVisible = true;
                       }
                     });
                   },
-                  child: Text("Animate"))
+                  child: Text("Close"))
             ],
           ),
         ));
   }
 }
-    
-  
-  
-
-
-// class MyHomeState extends State<MyHomePage> {
-//   var _width = 200.0;
-//   var _height = 100.0;
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//         appBar: AppBar(
-//           title: Text("Foo Animations"),
-//           centerTitle: true,
-//           backgroundColor: Colors.green,
-//         ),
-//         body: Center(
-//           child: Column(
-//             mainAxisAlignment: MainAxisAlignment.center,
-//             children: [
-//               AnimatedContainer(
-//                 width: _width,
-//                 height: _height,
-//                 color: Colors.blue,
-//                 duration: Duration(seconds: 2),
-//               ),
-//               ElevatedButton(
-//                   onPressed: () {
-                    
-//                     setState(() {
-//                       _width:
-//                       100.0;
-//                       _height:
-//                       200.0;
-//                       });
-//                   },
-//                   child: Text("Animate"))
-//             ],
-//           ),
-//         ));
-//   }
-// }
