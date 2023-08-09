@@ -28,9 +28,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  var _width = 500.0;
+  var _width = 200.0;
 
-  var _height = 50.0;
+  var _height = 100.0;
 
   Decoration myDecor = BoxDecoration(
       borderRadius: BorderRadius.circular(2.0), color: Colors.blueGrey);
@@ -60,20 +60,16 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPressed: () {
                     setState(() {
                       if (flag) {
-                        _width:
-                        50.0;
-                        _height:
-                        500.0;
+                        _width = 100.0;
+                        _height = 200.0;
                         myDecor = BoxDecoration(
                           borderRadius: BorderRadius.circular(21),
                           color: Colors.orange,
                         );
                         flag = false;
                       } else {
-                        _width:
-                        500.0;
-                        _height:
-                        50.0;
+                        _width = 200.0;
+                        _height = 100.0;
                         flag = true;
                         myDecor = BoxDecoration(
                           borderRadius: BorderRadius.circular(2.0),
