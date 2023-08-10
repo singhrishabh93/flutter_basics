@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'MyFirstApp',
       theme: ThemeData(),
-      home: DetailPage(),
+      home: MyHomePage(),
     );
   }
 }
@@ -41,12 +41,21 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         body: Container(
           child: Center(
-            child: Hero(
-              tag: 'background',
-              child: Image.asset(
-                "assets/images/boy.png",
-                width: 100,
-                height: 300,
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DetailPage(),
+                    ));
+              },
+              child: Hero(
+                tag: 'background',
+                child: Image.asset(
+                  "assets/images/boy.png",
+                  width: 100,
+                  height: 300,
+                ),
               ),
             ),
           ),
