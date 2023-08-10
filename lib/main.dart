@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_basics_1/Intropage.dart';
 import 'package:flutter_basics_1/SplashPage.dart';
@@ -28,8 +30,22 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  var myOpac = 1.0;
-  bool isVisible = true;
+  // var myOpac = 1.0;
+  bool isFirst = true;
+
+  @override
+  void initState() {
+    Timer(Duration(seconds: 4), () {
+      reload();
+    });
+  }
+
+  void reload() {
+    setState(() {
+      isFirst = false;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,34 +55,17 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: Colors.green,
         ),
         body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              AnimatedOpacity(
-                opacity: myOpac,
-                duration: Duration(seconds: 1),
-                child: Container(
-                  width: 200,
-                  height: 100,
-                  color: Colors.blue,
-                ),
-                curve: Curves.elasticInOut,
-              ),
-              ElevatedButton(
-                  onPressed: () {
-                    myOpac = 0.0;
-                    setState(() {
-                      if (isVisible) {
-                        myOpac = 0.0; //invisible
-                        isVisible = false;
-                      } else {
-                        myOpac = 1.0; //visible
-                        isVisible = true;
-                      }
-                    });
-                  },
-                  child: Text("Close"))
-            ],
+          child: AnimatedCrossFade(
+            duration: Duration(seconds: 2),
+            firstChild:
+                Container(width: 200, height: 200, color: Colors.blueGrey),
+            secondChild: Image.asset(
+              'assets/images/boy.png',
+              width: 200,
+              height: 200,
+            ),
+            crossFadeState:
+                isFirst ? CrossFadeState.showFirst : CrossFadeState.showSecond,
           ),
         ));
   }
