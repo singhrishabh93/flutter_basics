@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class DetailPage extends StatelessWidget {
+class DetailPage extends StatelessWidget { //hero animation page
   @override
   Widget build(BuildContext context) {
     return Scaffold(
