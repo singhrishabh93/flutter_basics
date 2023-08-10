@@ -35,14 +35,20 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void initState() {
-    Timer(Duration(seconds: 4), () {
-      reload();
-    });
+    super.initState();
+
+    // Timer(Duration(seconds: 4), () {
+    //   reload();
+    // });
   }
 
   void reload() {
     setState(() {
-      isFirst = false;
+      if (isFirst) {
+        isFirst = false;
+      } else {
+        isFirst = true;
+      }
     });
   }
 
@@ -55,17 +61,31 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: Colors.green,
         ),
         body: Center(
-          child: AnimatedCrossFade(
-            duration: Duration(seconds: 2),
-            firstChild:
-                Container(width: 200, height: 200, color: Colors.blueGrey),
-            secondChild: Image.asset(
-              'assets/images/boy.png',
-              width: 200,
-              height: 200,
-            ),
-            crossFadeState:
-                isFirst ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              AnimatedCrossFade(
+                duration: Duration(seconds: 4),
+                firstChild:
+                    Container(width: 200, height: 200, color: Colors.blueGrey),
+                secondChild: Image.asset(
+                  'assets/images/boy.png',
+                  width: 200,
+                  height: 200,
+                ),
+                sizeCurve: Curves.fastOutSlowIn,
+                firstCurve: Curves.easeInOut,
+                secondCurve: Curves.bounceIn,
+                crossFadeState: isFirst
+                    ? CrossFadeState.showFirst
+                    : CrossFadeState.showSecond,
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    reload();
+                  },
+                  child: Text("Animate"))
+            ],
           ),
         ));
   }
