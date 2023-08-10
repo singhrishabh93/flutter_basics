@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_basics_1/Intropage.dart';
 import 'package:flutter_basics_1/SplashPage.dart';
 import 'package:flutter_basics_1/Thirdpage.dart';
+import 'package:flutter_basics_1/detail_page.dart';
 import 'package:flutter_basics_1/widgets/rounded_btn.dart';
 import 'package:intl/intl.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'MyFirstApp',
       theme: ThemeData(),
-      home: MyHomePage(),
+      home: DetailPage(),
     );
   }
 }
@@ -30,28 +31,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // var myOpac = 1.0;
-  bool isFirst = true;
-
-  @override
-  void initState() {
-    super.initState();
-
-    // Timer(Duration(seconds: 4), () {
-    //   reload();
-    // });
-  }
-
-  void reload() {
-    setState(() {
-      if (isFirst) {
-        isFirst = false;
-      } else {
-        isFirst = true;
-      }
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,32 +39,16 @@ class _MyHomePageState extends State<MyHomePage> {
           centerTitle: true,
           backgroundColor: Colors.green,
         ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              AnimatedCrossFade(
-                duration: Duration(seconds: 4),
-                firstChild:
-                    Container(width: 200, height: 200, color: Colors.blueGrey),
-                secondChild: Image.asset(
-                  'assets/images/boy.png',
-                  width: 200,
-                  height: 200,
-                ),
-                sizeCurve: Curves.fastOutSlowIn,
-                firstCurve: Curves.easeInOut,
-                secondCurve: Curves.bounceIn,
-                crossFadeState: isFirst
-                    ? CrossFadeState.showFirst
-                    : CrossFadeState.showSecond,
+        body: Container(
+          child: Center(
+            child: Hero(
+              tag: 'background',
+              child: Image.asset(
+                "assets/images/boy.png",
+                width: 100,
+                height: 300,
               ),
-              ElevatedButton(
-                  onPressed: () {
-                    reload();
-                  },
-                  child: Text("Animate"))
-            ],
+            ),
           ),
         ));
   }
