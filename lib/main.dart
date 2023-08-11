@@ -31,33 +31,35 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  var arrIndex = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Foo Animations"),
+          title: Text("3D List"),
           centerTitle: true,
-          backgroundColor: Colors.green,
+          backgroundColor: Colors.purple,
         ),
-        body: Container(
-          child: Center(
-            child: InkWell(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => DetailPage(),
-                    ));
-              },
-              child: Hero(
-                tag: 'background',
-                child: Image.asset(
-                  "assets/images/boy.png",
-                  width: 100,
-                  height: 300,
-                ),
-              ),
-            ),
+        body: Center(
+          child: ListWheelScrollView(
+            itemExtent: 200,
+            children: arrIndex
+                .map((value) => Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        child: Center(
+                            child: Text(
+                          "$value",
+                          style: TextStyle(fontSize: 25),
+                        )),
+                        decoration: BoxDecoration(
+                            color: Colors.green,
+                            borderRadius: BorderRadius.circular(21)),
+                        width: double.infinity,
+                      ),
+                    ))
+                .toList(),
+            //height of a single widget
           ),
         ));
   }
