@@ -40,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
           centerTitle: true,
           backgroundColor: Colors.purple,
         ),
-        body: Center(
+        body: Center( //ListWheel ScrollView Widget
           child: ListWheelScrollView(
             itemExtent: 200,
             children: arrIndex
