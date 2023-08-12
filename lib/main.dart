@@ -39,11 +39,12 @@ class MyHomeState extends State<MyHomePage> {
         ),
         body: Container(
           decoration: BoxDecoration(
-              gradient: LinearGradient(colors: [
-            Colors.orange.shade100,
-            Colors.green.shade100,
-            Colors.blue.shade100
-          ])),
+              gradient: LinearGradient(
+            colors: [Color(0xffa18cd1), Color(0xfffbc2eb)],
+            begin: FractionalOffset(1.0, 0.0),
+            end: FractionalOffset(0.0, 1.0),
+            // stops: [0.1, 0.1],
+          )),
           child: Center(
             child: Container(
               width: 300,
