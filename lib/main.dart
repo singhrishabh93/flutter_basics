@@ -54,7 +54,7 @@ class MyHomeState extends State<MyHomePage>
           centerTitle: true,
           backgroundColor: Colors.purple,
         ),
-        body: Center(
+        body: Center( //Tween Animation
           child: Container(
             width: animation.value,
             height: animation.value,
