@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   runApp(MyApp());
@@ -23,57 +24,78 @@ class MyHomePage extends StatefulWidget {
   }
 }
 
-class MyHomeState extends State<MyHomePage>
-    with SingleTickerProviderStateMixin {
-  late Animation _animation;
-  late AnimationController _animationController;
+class MyHomeState extends State<MyHomePage> {
+  var nameController = TextEditingController();
 
-  var listRadius = [150.0, 200.0, 250.0, 300.0, 350.0];
+  static const String KEYNAME = 'name';
+
+  var nameValue = "No Value Saved";
 
   @override
   void initState() {
     super.initState();
-    _animationController = AnimationController(
-        vsync: this, duration: Duration(seconds: 4), lowerBound: 0.5);
-    // _animation = Tween(begin: 0.0, end: 1.0).animate(_animationController);
-
-    _animationController.addListener(() {
-      setState(() {});
-    });
-
-    _animationController.forward();
+    getValue();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Ripple Animation"),
+          title: Text("Shared Preferences"),
           centerTitle: true,
           backgroundColor: Colors.purple,
         ),
-        body: Center(
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
-              buildMyContainer(listRadius[0]),
-              buildMyContainer(listRadius[1]),
-              buildMyContainer(listRadius[2]),
-              buildMyContainer(listRadius[3]),
-              buildMyContainer(listRadius[4]),
-              Icon(Icons.add_call)
-            ],
+        body: Container(
+          child: Center(
+            child: SizedBox(
+              width: 200,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextField(
+                    controller: nameController,
+                    decoration: InputDecoration(
+                      label: Text("Name"),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(21)),
+                      hintText: 'Enter a term',
+                      focusColor: Colors.blue,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 11,
+                  ),
+                  ElevatedButton(
+                      onPressed: () async {
+                        var name = nameController.text.toString();
+
+                        var prefs = await SharedPreferences.getInstance();
+
+                        prefs.setString(KEYNAME, name);
+
+                        // setState(() {
+
+                        // });
+                      },
+                      child: Text("Save")),
+                  SizedBox(
+                    height: 11,
+                  ),
+                  Text(nameValue)
+                ],
+              ),
+            ),
           ),
         ));
   }
 
-  Widget buildMyContainer(radius) {
-    return Container(
-      width: radius * _animationController.value,
-      height: radius * _animationController.value,
-      decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: Colors.blue.withOpacity(1.0 - _animationController.value)),
-    );
+  void getValue() async {
+    var prefs = await SharedPreferences.getInstance();
+    var getName = prefs.getString(KEYNAME);
+    nameValue = getName ?? "No Value Saved" ;
+
+    setState(() {
+      
+    });
   }
 }
