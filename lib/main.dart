@@ -25,41 +25,55 @@ class MyHomePage extends StatefulWidget {
 
 class MyHomeState extends State<MyHomePage>
     with SingleTickerProviderStateMixin {
-  late Animation animation;
-  late Animation colorAnimation;
-  late AnimationController animationController;
+  late Animation _animation;
+  late AnimationController _animationController;
+
+  var listRadius = [150.0, 200.0, 250.0, 300.0, 350.0];
+
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    animationController =
-        AnimationController(vsync: this, duration: Duration(seconds: 4));
-    animation = Tween(begin: 0.0, end: 200.0).animate(animationController);
-    colorAnimation = ColorTween(begin: Colors.blue, end: Colors.green)
-        .animate(animationController);
+    _animationController = AnimationController(
+        vsync: this, duration: Duration(seconds: 4), lowerBound: 0.5);
+    // _animation = Tween(begin: 0.0, end: 1.0).animate(_animationController);
 
-    animationController.addListener(() {
-      print(animation.value);
+    _animationController.addListener(() {
       setState(() {});
     });
 
-    animationController.forward();
+    _animationController.forward();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Tween Animation"),
+          title: Text("Ripple Animation"),
           centerTitle: true,
           backgroundColor: Colors.purple,
         ),
-        body: Center( //Tween Animation
-          child: Container(
-            width: animation.value,
-            height: animation.value,
-            color: colorAnimation.value,
+        body: Center(
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              buildMyContainer(listRadius[0]),
+              buildMyContainer(listRadius[1]),
+              buildMyContainer(listRadius[2]),
+              buildMyContainer(listRadius[3]),
+              buildMyContainer(listRadius[4]),
+              Icon(Icons.add_call)
+            ],
           ),
         ));
+  }
+
+  Widget buildMyContainer(radius) {
+    return Container(
+      width: radius * _animationController.value,
+      height: radius * _animationController.value,
+      decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: Colors.blue.withOpacity(1.0 - _animationController.value)),
+    );
   }
 }
