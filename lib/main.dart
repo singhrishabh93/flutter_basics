@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_basics_1/Intropage.dart';
+import 'package:flutter_basics_1/SplashPage.dart';
+import 'package:flutter_basics_1/Thirdpage.dart';
+import 'package:flutter_basics_1/widgets/rounded_btn.dart';
+import 'package:intl/intl.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,7 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'MyFirstApp',
       theme: ThemeData(),
-      home: MyHomePage(),
+      home: SplashPage(),
     );
   }
 }
@@ -25,77 +30,33 @@ class MyHomePage extends StatefulWidget {
 }
 
 class MyHomeState extends State<MyHomePage> {
-  var nameController = TextEditingController();
-
-  static const String KEYNAME = 'name';
-
-  var nameValue = "No Value Saved";
-
-  @override
-  void initState() {
-    super.initState();
-    getValue();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Shared Preferences"),
+          title: Text("Basic Calculation"),
           centerTitle: true,
-          backgroundColor: Colors.purple,
+          backgroundColor: Colors.green,
         ),
-        body: Container(
-          child: Center(
-            child: SizedBox(
-              width: 200,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  TextField(
-                    controller: nameController,
-                    decoration: InputDecoration(
-                      label: Text("Name"),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(21)),
-                      hintText: 'Enter a term',
-                      focusColor: Colors.blue,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 11,
-                  ),
-                  ElevatedButton(
-                      onPressed: () async {
-                        var name = nameController.text.toString();
-
-                        var prefs = await SharedPreferences.getInstance();
-
-                        prefs.setString(KEYNAME, name);
-
-                        // setState(() {
-
-                        // });
-                      },
-                      child: Text("Save")),
-                  SizedBox(
-                    height: 11,
-                  ),
-                  Text(nameValue)
-                ],
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            // crossAxisAlignment: CrossAxisAlignment.center ,
+            children: [
+              Text(
+                "Hello World",
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w100),
               ),
-            ),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return ThirdPage(this);
+                    }));
+                  },
+                  child: Text("press Here"))
+            ],
           ),
         ));
-  }
-
-  void getValue() async {
-    var prefs = await SharedPreferences.getInstance();
-    var getName = prefs.getString(KEYNAME);
-    nameValue = getName ?? "No Value Saved" ;
-
-    setState(() {
-      
-    });
   }
 }
