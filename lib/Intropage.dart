@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basics_1/Thirdpage.dart';
 import 'package:flutter_basics_1/main.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class IntroPage extends StatelessWidget {
+class IntroPage extends StatefulWidget {
+  @override
+  State<IntroPage> createState() => _IntroPageState();
+}
+
+class _IntroPageState extends State<IntroPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Intro Page"),
+          title: Text("Login Screen"),
           centerTitle: true,
         ),
         body: Center(
@@ -15,9 +22,9 @@ class IntroPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(
-                  Icons.person,
-                  size: 65,
+                Icon(Icons.account_circle, size: 75, color: Colors.blue),
+                SizedBox(
+                  height: 11,
                 ),
                 TextField(
                   decoration: InputDecoration(
@@ -34,7 +41,17 @@ class IntroPage extends StatelessWidget {
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(21))),
                 ),
-                ElevatedButton(onPressed: () {}, child: Text("Login"))
+                ElevatedButton(
+                    onPressed: () async {
+                      //if successfully logged in
+                      var sharedPref = await SharedPreferences.getInstance();
+                      sharedPref.setBool(SplashPageState.KEYLOGIN, true);
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return ThirdPage();
+                      }));
+                    },
+                    child: Text("Login"))
               ],
             ),
           ),
