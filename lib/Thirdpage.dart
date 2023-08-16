@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ThirdPage extends StatelessWidget {
-  var nameFromHome;
 
-  ThirdPage(this.nameFromHome);
+  ThirdPage();
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +18,7 @@ class ThirdPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "Welcome, $nameFromHome",
+                "Welcome",
                 style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
               ),
               ElevatedButton(
