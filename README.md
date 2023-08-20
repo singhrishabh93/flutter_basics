@@ -1,6 +1,6 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Google-flutter-logo.png" width="140" alt=" Flutter ">
  
-# Basics of Flutter (Topic-wise)
+# Basics of Flutter (Topic-wise) including some Projects
 
 Welcome to the "Basics of Flutter" repository! This repository serves as a comprehensive guide to getting started with Flutter development. Whether you're a beginner exploring the world of Flutter or an experienced developer looking to refresh your skills, you've come to the right place.
 
