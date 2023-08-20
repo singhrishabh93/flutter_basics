@@ -1,12 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_basics_1/Intropage.dart';
-import 'package:flutter_basics_1/SplashPage.dart';
-import 'package:flutter_basics_1/Thirdpage.dart';
-import 'package:flutter_basics_1/widgets/rounded_btn.dart';
-import 'package:intl/intl.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'dart:async';
-import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   runApp(MyApp());
@@ -19,62 +11,40 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'MyFirstApp',
       theme: ThemeData(),
-      home: SplashPage(),
+      home: MyHomePage(),
     );
   }
 }
 
-class SplashPage extends StatefulWidget {
+class MyHomePage extends StatefulWidget {
   @override
-  State<SplashPage> createState() => SplashPageState();
+  State<StatefulWidget> createState() {
+    return MyHomeState();
+  }
 }
 
-class SplashPageState extends State<SplashPage> {
-  static const String KEYLOGIN = "login";
+class MyHomeState extends State<MyHomePage> {
   @override
   void initState() {
+    // TODO: implement initState
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        color: Colors.blue,
-        child: Center(
-            child: Text(
-          "Classico",
-          style: TextStyle(
-              fontSize: 34, fontWeight: FontWeight.w700, color: Colors.white),
-        )),
-      ),
-    );
-  }
-
-  void whereToGo() async {
-    var sharedPref = await SharedPreferences.getInstance();
-
-    var isLoggedIn = sharedPref.getBool(KEYLOGIN);
-
-    Timer(Duration(seconds: 5), () {
-      if (isLoggedIn != null) {
-        if (isLoggedIn) {
-          Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (context) {
-            return ThirdPage();
-          }));
-        } else {
-          Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (context) {
-            return IntroPage();
-          }));
-        }
-      } else {
-        Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) {
-          return IntroPage();
-        }));
-      }
-    });
+        appBar: AppBar(
+          title: Text("Flutter Application"),
+          centerTitle: true,
+          backgroundColor: Colors.green,
+        ),
+        body: Column(children: <Widget>[
+          Card(
+            child: Text("Chart!"),
+          ),
+          Card(
+            child: Text("List of TXT"),
+          )
+        ]));
   }
 }
