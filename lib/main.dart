@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './transaction.dart';
+import 'package:intl/intl.dart';
 
 void main() {
   runApp(MyApp());
@@ -48,7 +49,6 @@ class MyHomeState extends State<MyHomePage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
   }
 
@@ -67,6 +67,33 @@ class MyHomeState extends State<MyHomePage> {
                 width: double.infinity, child: Center(child: Text("Chart!"))),
             elevation: 5,
           ),
+          Card(
+            elevation: 5,
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  TextField(
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(5)),
+                        labelText: "Title"),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  TextField(
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(5)),
+                          labelText: "Amount")),
+                  ElevatedButton(
+                      onPressed: () {}, child: Text("Add Transaction"))
+                ],
+              ),
+            ),
+          ),
           Column(
             children: transactions.map((value) {
               return Card(
@@ -83,7 +110,7 @@ class MyHomeState extends State<MyHomePage> {
                       ),
                       padding: EdgeInsets.all(8.0),
                       child: Text(
-                        value.amount.toString(),
+                        "\$${value.amount}",
                         style: TextStyle(
                             fontWeight: FontWeight.w700,
                             fontSize: 20,
@@ -91,16 +118,21 @@ class MyHomeState extends State<MyHomePage> {
                       ),
                     ),
                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(value.title),
-                        Text(value.date.toString()),
+                        Text(
+                          value.title,
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          DateFormat.yMMMEd().format(value.date),
+                          style: TextStyle(color: Colors.grey),
+                        ),
                       ],
                     ),
                   ],
                 ),
-                // child: Text(value.title),
-                // child: Text(value.title),
-                // child: Text(value.title),
               );
             }).toList(),
           )
