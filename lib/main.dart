@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basics_1/widgets/user_transaction.dart';
 
 // import 'models/transaction.dart';
 // import 'package:intl/intl.dart';
@@ -35,15 +36,18 @@ class MyHomePage extends StatelessWidget {
         appBar: AppBar(
           title: const Text("Flutter Application"),
           centerTitle: true,
-          backgroundColor: Colors.black,
+          backgroundColor: Colors.blue,
         ),
-        body: const Column(children: <Widget>[
-          Card(
-            color: Colors.blue,
-            elevation: 5,
-            child: SizedBox(
-                width: double.infinity, child: Center(child: Text("Chart!"))),
-          ),
-        ]));
+        body: SingleChildScrollView(
+          child: Column(children: <Widget>[
+            Card(
+              color: Colors.blue,
+              elevation: 5,
+              child: SizedBox(
+                  width: double.infinity, child: Center(child: Text("Chart!"))),
+            ),
+            UserTransaction()
+          ]),
+        ));
   }
 }
