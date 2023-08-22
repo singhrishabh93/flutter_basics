@@ -4,6 +4,8 @@ class NewTransaction extends StatelessWidget{
 
   final titleController = TextEditingController();
   final amountController = TextEditingController();
+
+  NewTransaction({super.key});
   
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,7 @@ class NewTransaction extends StatelessWidget{
                             borderRadius: BorderRadius.circular(5)),
                         labelText: "Title"),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   TextField(
@@ -37,7 +39,7 @@ class NewTransaction extends StatelessWidget{
                               borderRadius: BorderRadius.circular(5)),
                           labelText: "Amount")),
                   ElevatedButton(
-                      onPressed: () {}, child: Text("Add Transaction"))
+                      onPressed: () {}, child: const Text("Add Transaction"))
                 ],
               ),
             ),

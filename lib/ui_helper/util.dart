@@ -6,7 +6,7 @@ TextStyle myTextStyle11(
     FontWeight fontWeight = FontWeight.normal
   }
 ) {
-  return TextStyle(
+  return const TextStyle(
     fontSize: 50,
     fontWeight: FontWeight.bold,
   );

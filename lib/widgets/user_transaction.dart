@@ -3,6 +3,8 @@ import '../widgets/new_transactions.dart';
 import '../widgets/transaction_list.dart';
 
 class UserTransaction extends StatefulWidget{
+  const UserTransaction({super.key});
+
   @override
    _UserTransactionState createState() => _UserTransactionState();
 }
@@ -13,7 +15,7 @@ class _UserTransactionState extends State<UserTransaction> {
     return Column(
       children: [
         NewTransaction(),
-        TransactionList(),
+        const TransactionList(),
       ],
     );
   }

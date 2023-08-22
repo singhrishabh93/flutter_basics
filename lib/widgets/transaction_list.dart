@@ -3,6 +3,8 @@ import '../models/transaction.dart';
 import 'package:intl/intl.dart';
 
 class TransactionList extends StatefulWidget {
+  const TransactionList({super.key});
+
   @override
   _TransactionListState createState() => _TransactionListState();
 }
@@ -36,17 +38,17 @@ class _TransactionListState extends State<TransactionList> {
           child: Row(
             children: [
               Container(
-                margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                 decoration: BoxDecoration(
                   border: Border.all(
                     color: Colors.purple,
                     width: 2,
                   ),
                 ),
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Text(
                   "\$${value.amount}",
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontWeight: FontWeight.w700,
                       fontSize: 20,
                       color: Colors.purple),
@@ -57,11 +59,11 @@ class _TransactionListState extends State<TransactionList> {
                 children: [
                   Text(
                     value.title,
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                   Text(
                     DateFormat.yMMMEd().format(value.date),
-                    style: TextStyle(color: Colors.grey),
+                    style: const TextStyle(color: Colors.grey),
                   ),
                 ],
               ),
