@@ -81,12 +81,6 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-<<<<<<< HEAD
-        title: const Text("Flutter Application"),
-        actions: <Widget>[IconButton(icon: Icon(Icons.add), onPressed: () {})],
-        centerTitle: true,
-        backgroundColor: Colors.blue,
-=======
         title: Text("Expense Tracker"),
         actions: <Widget>[
           IconButton(
@@ -96,7 +90,6 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
         centerTitle: true,
         backgroundColor: Colors.black,
->>>>>>> 8d29286 (Showing a Modal Bottom sheet)
       ),
       body: SingleChildScrollView(
         child: Column(children: <Widget>[
@@ -106,20 +99,12 @@ class _MyHomePageState extends State<MyHomePage> {
             child: SizedBox(
                 width: double.infinity, child: Center(child: Text("Chart!"))),
           ),
-<<<<<<< HEAD
-          UserTransaction()
-=======
           TransactionList(_userTransaction),
->>>>>>> 8d29286 (Showing a Modal Bottom sheet)
         ]),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
-<<<<<<< HEAD
-        onPressed: () {},
-=======
         onPressed: () => _startAddNewTransaction(context),
->>>>>>> 8d29286 (Showing a Modal Bottom sheet)
         child: Icon(Icons.add),
       ),
     );
