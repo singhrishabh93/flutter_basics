@@ -17,8 +17,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'MyFirstApp',
-      theme: ThemeData(),
+      title: 'Personal Expenses',
+      theme: ThemeData(
+        primarySwatch: Colors.purple,
+        // colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.green),
+      ),
       home: const MyHomePage(),
     );
   }
@@ -84,7 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Expense Tracker"),
+        title: Text("Personal Expenses"),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.add),
@@ -92,7 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
           )
         ],
         centerTitle: true,
-        backgroundColor: Colors.black,
+        // backgroundColor: Colors.black,
       ),
       body: SingleChildScrollView(
         child: Column(children: <Widget>[
