@@ -18,10 +18,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Personal Expenses',
-      theme: ThemeData(
-        primarySwatch: Colors.purple,
-        // colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.green),
-      ),
+      theme: ThemeData(primarySwatch: Colors.purple, fontFamily: "Poppins",
+      // colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.green),
+          ),
       home: const MyHomePage(),
     );
   }
