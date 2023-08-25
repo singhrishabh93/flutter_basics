@@ -14,9 +14,18 @@ class TransactionList extends StatelessWidget {
               children: [
                 Text(
                   "No Transactions Added yet!",
-                  style: TextStyle(fontSize: 25),
+                  style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-                Image.asset('assets/images/waiting.png')
+                Container(
+                  height: 200,
+                  child: Image.asset(
+                    'assets/images/wait.png',
+                    fit: BoxFit.cover,
+                  ),
+                )
               ],
             )
           : SingleChildScrollView(
