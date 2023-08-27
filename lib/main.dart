@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basics_1/widgets/chart.dart';
 import '../widgets/new_transactions.dart';
 import '../widgets/transaction_list.dart';
 import './models/transaction.dart';
@@ -35,7 +36,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<Transaction> _userTransaction = [
+  final List<Transaction> _userTransactions = [
     // Transaction(
     //   id: "t1",
     //   title: "New Shoes",
@@ -56,6 +57,16 @@ class _MyHomePageState extends State<MyHomePage> {
     // ),
   ];
 
+  List<Transaction> get _recentTransactions {
+    return _userTransactions.where((tx) {
+      return tx.date.isAfter(
+        DateTime.now().subtract(
+          Duration(days: 7),
+        ),
+      );
+    }).toList();
+  }
+
   void _addNewTransaction(String txTitle, double txAmount) {
     final newTx = Transaction(
       title: txTitle,
@@ -65,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
 
     setState(() {
-      _userTransaction.add(newTx);
+      _userTransactions.add(newTx);
     });
   }
 
@@ -99,13 +110,8 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: SingleChildScrollView(
         child: Column(children: <Widget>[
-          Card(
-            color: Colors.blue,
-            elevation: 5,
-            child: SizedBox(
-                width: double.infinity, child: Center(child: Text("Chart!"))),
-          ),
-          TransactionList(_userTransaction),
+          Chart(_recentTransactions),
+          TransactionList(_userTransactions),
         ]),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
