@@ -39,20 +39,14 @@ class SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Wrap(
+      body: Column(
         children: [
-          Chip(
-            avatar: CircleAvatar(backgroundColor: Colors.blue.shade900, child: const Text("AH")),
-            label: const Text("Number 1")),
-          Chip(
-            avatar: CircleAvatar(backgroundColor: Colors.blue.shade900, child: const Text("AH")),
-            label: const Text("Number 1")),
-          Chip(
-            avatar: CircleAvatar(backgroundColor: Colors.blue.shade900, child: const Text("AH")),
-            label: const Text("Number 1")),
-          Chip(
-            avatar: CircleAvatar(backgroundColor: Colors.blue.shade900, child: const Text("AH")),
-            label: const Text("Number 1"))
+          const ExpansionTile(title: Text("This is an Expansion Tile"),
+          subtitle: Text("This is a subtitle of Expansion Tile"),
+          children: [
+            ListTile(title: Text("This is a Tile"),)
+          ],
+          )
         ],
       )
     );
