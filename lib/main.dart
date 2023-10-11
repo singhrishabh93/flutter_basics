@@ -1,124 +1,61 @@
 import 'package:flutter/material.dart';
-import './widgets/chart.dart';
-import '../widgets/new_transactions.dart';
-import '../widgets/transaction_list.dart';
-import './models/transaction.dart';
-
-// import 'models/transaction.dart';
-// import 'package:intl/intl.dart';
+import 'package:flutter_basics_1/Intropage.dart';
+import 'package:flutter_basics_1/SplashPage.dart';
+import 'package:flutter_basics_1/Thirdpage.dart';
+import 'package:flutter_basics_1/widgets/rounded_btn.dart';
+import 'package:intl/intl.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'dart:async';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Personal Expenses',
-      theme: ThemeData(
-        primarySwatch: Colors.purple, fontFamily: "Poppins",
-        // colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.green),
-      ),
-      home: const MyHomePage(),
+      title: 'MyFirstApp',
+      theme: ThemeData(),
+      home: SplashPage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
-
+class SplashPage extends StatefulWidget {
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<SplashPage> createState() => SplashPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  final List<Transaction> _userTransactions = [
-    // Transaction(
-    //   id: "t1",
-    //   title: "New Shoes",
-    //   amount: 99.99,
-    //   date: DateTime.now(),
-    // ),
-    // Transaction(
-    //   id: "t2",
-    //   title: "New Socks",
-    //   amount: 29.99,
-    //   date: DateTime.now(),
-    // ),
-    // Transaction(
-    //   id: "t3",
-    //   title: "Belt",
-    //   amount: 59.49,
-    //   date: DateTime.now(),
-    // ),
-  ];
-
-  List<Transaction> get _recentTransactions {
-    return _userTransactions.where((tx) {
-      return tx.date.isAfter(
-        DateTime.now().subtract(
-          Duration(days: 7),
-        ),
-      );
-    }).toList();
-  }
-
-  void _addNewTransaction(String txTitle, double txAmount) {
-    final newTx = Transaction(
-      title: txTitle,
-      amount: txAmount,
-      date: DateTime.now(),
-      id: DateTime.now().toString(),
-    );
-
-    setState(() {
-      _userTransactions.add(newTx);
-    });
-  }
-
-  // final List<Transaction> transactions = [];
-  void _startAddNewTransaction(BuildContext ctx) {
-    showModalBottomSheet(
-      context: ctx,
-      builder: (_) {
-        return GestureDetector(
-          onTap: (() {}),
-          child: NewTransaction(_addNewTransaction),
-          behavior: HitTestBehavior.opaque,
-        );
-      },
-    );
+class SplashPageState extends State<SplashPage> {
+  static const String KEYLOGIN = "login";
+  @override
+  void initState() {
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Personal Expenses"),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.add),
-            onPressed: () => _startAddNewTransaction(context),
-          )
+      body: Wrap(
+        children: [
+          Chip(
+            avatar: CircleAvatar(backgroundColor: Colors.blue.shade900, child: const Text("AH")),
+            label: const Text("Number 1")),
+          Chip(
+            avatar: CircleAvatar(backgroundColor: Colors.blue.shade900, child: const Text("AH")),
+            label: const Text("Number 1")),
+          Chip(
+            avatar: CircleAvatar(backgroundColor: Colors.blue.shade900, child: const Text("AH")),
+            label: const Text("Number 1")),
+          Chip(
+            avatar: CircleAvatar(backgroundColor: Colors.blue.shade900, child: const Text("AH")),
+            label: const Text("Number 1"))
         ],
-        centerTitle: true,
-        // backgroundColor: Colors.black,
-      ),
-      body: SingleChildScrollView(
-        child: Column(children: <Widget>[
-          Chart(_recentTransactions),
-          TransactionList(_userTransactions),
-        ]),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => _startAddNewTransaction(context),
-        child: Icon(Icons.add),
-      ),
+      )
     );
   }
-}
+  
+  }
