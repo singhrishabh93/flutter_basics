@@ -1,55 +1,49 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_basics_1/Intropage.dart';
-import 'package:flutter_basics_1/SplashPage.dart';
-import 'package:flutter_basics_1/Thirdpage.dart';
-import 'package:flutter_basics_1/widgets/rounded_btn.dart';
-import 'package:intl/intl.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'dart:async';
-import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
-  runApp(MyApp());
-}
+/// Flutter code sample for [AlertDialog].
 
-class MyApp extends StatelessWidget {
+void main() => runApp(const AlertDialogExampleApp());
+
+class AlertDialogExampleApp extends StatelessWidget {
+  const AlertDialogExampleApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'MyFirstApp',
-      theme: ThemeData(),
-      home: SplashPage(),
+      home: Scaffold(
+        appBar: AppBar(title: const Text('Alert')),
+        body: const Center(
+          child: DialogExample(),
+        ),
+      ),
     );
   }
 }
 
-class SplashPage extends StatefulWidget {
-  @override
-  State<SplashPage> createState() => SplashPageState();
-}
-
-class SplashPageState extends State<SplashPage> {
-  static const String KEYLOGIN = "login";
-  @override
-  void initState() {
-    super.initState();
-  }
+class DialogExample extends StatelessWidget {
+  const DialogExample({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          const ExpansionTile(title: Text("This is an Expansion Tile"),
-          subtitle: Text("This is a subtitle of Expansion Tile"),
-          children: [
-            ListTile(title: Text("This is a Tile"),)
+    return TextButton(
+      onPressed: () => showDialog<String>(
+        context: context,
+        builder: (BuildContext context) => AlertDialog(
+          title: const Text('AlertDialog Title'),
+          content: const Text('AlertDialog description'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () => Navigator.pop(context, 'Cancel'),
+              child: const Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () => Navigator.pop(context, 'OK'),
+              child: const Text('OK'),
+            ),
           ],
-          )
-        ],
-      )
+        ),
+      ),
+      child: const Text('Show Dialog'),
     );
   }
-  
-  }
+}
