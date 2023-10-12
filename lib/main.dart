@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basics_1/Thirdpage.dart';
+import 'package:flutter_basics_1/tabview.dart';
 // import 'package:flutter_basics_1/Intropage.dart';
 // import 'package:flutter_basics_1/SplashPage.dart';
 // import 'package:flutter_basics_1/Thirdpage.dart';
@@ -32,10 +34,8 @@ class SplashPage extends StatefulWidget {
 class SplashPageState extends State<SplashPage> {
   int myIndex = 0;
   List <Widget> widgetList = [
-    Text('data1', style: TextStyle(fontSize: 40),),
-    Text('data2', style: TextStyle(fontSize: 40),),
-    Text('data3', style: TextStyle(fontSize: 40),),
-    Text('data4', style: TextStyle(fontSize: 40),),
+    TabView(),
+    ThirdPage()
   ];
   @override
   Widget build(BuildContext context) {
