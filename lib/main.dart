@@ -30,41 +30,59 @@ class SplashPage extends StatefulWidget {
 }
 
 class SplashPageState extends State<SplashPage> {
-  static const String KEYLOGIN = "login";
-  @override
-  void initState() {
-    super.initState();
-  }
-
+  int myIndex = 0;
+  List <Widget> widgetList = [
+    Text('data1', style: TextStyle(fontSize: 40),),
+    Text('data2', style: TextStyle(fontSize: 40),),
+    Text('data3', style: TextStyle(fontSize: 40),),
+    Text('data4', style: TextStyle(fontSize: 40),),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
-      height: 500,
-      width: 500,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Container(
-            height: 30,
-            width: double.infinity,
-            color: Colors.deepOrange,
-          ),
-          Divider(height: 10, color: Colors.black,),
-          Container(
-            height: 30,
-            width: double.infinity,
-            color: Colors.green,
-          ),
-          Divider(height: 10, color: Colors.black,),
-          Container(
-            height: 30,
-            width: double.infinity,
-            color: Colors.blue,
-          ),
-        ],
-      ),
-    ));
+        bottomNavigationBar: BottomNavigationBar(
+            onTap: (index) {
+              setState(() {
+                myIndex = index;
+              });
+            },
+            currentIndex: myIndex,
+            items: [
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.home,
+                  color: Colors.white,
+                ),
+                label: "Home",
+                backgroundColor: Colors.grey,
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.shop,
+                  color: Colors.white,
+                ),
+                label: "Shop",
+                backgroundColor: Colors.grey,
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.chat,
+                  color: Colors.white,
+                ),
+                label: "Chat",
+                backgroundColor: Colors.grey,
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.person,
+                  color: Colors.white,
+                ),
+                label: "Profile",
+                backgroundColor: Colors.grey,
+              ),
+            ]),
+        body: Center(
+          child: widgetList[myIndex],
+        ));
   }
 }
