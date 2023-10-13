@@ -20,7 +20,7 @@ class _CricularProgressIndicatorWidgetState
       ),
       body: Container(
         child: Center(
-          child: CircularProgressIndicator(
+          child: LinearProgressIndicator(
             color: Colors.deepPurple,
           ),
         ),
