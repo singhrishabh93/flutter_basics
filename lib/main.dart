@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basics_1/AnimatedContainer.dart';
 import 'package:flutter_basics_1/CircularProgress.dart';
 import 'package:flutter_basics_1/Thirdpage.dart';
 import 'package:flutter_basics_1/tabview.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'MyFirstApp',
       theme: ThemeData(),
-      home: CricularProgressIndicatorWidget(),
+      home: AnimationWidget(),
     );
   }
 }
