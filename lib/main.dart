@@ -65,7 +65,7 @@ class SplashPageState extends State<SplashPage> {
                   color: Colors.white,
                 ),
                 label: "Shop",
-                backgroundColor: Colors.grey,
+                backgroundColor: Colors.yellow,
               ),
               BottomNavigationBarItem(
                 icon: Icon(
