@@ -8,7 +8,7 @@ Welcome to the Flutter Mastery repository! This repository serves as a comprehen
 
 - Introduction to Flutter and Dart
 - Widget Architecture and Composition
-- State Management Techniques (Provider, Bloc, Redux)
+- State Management Techniques
 - UI Design Principles and Material Design
 - Networking and API Integration
 - Navigation and Routing Strategies
